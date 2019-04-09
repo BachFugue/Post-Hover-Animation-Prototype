@@ -1,0 +1,191 @@
+<html>
+<head>
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+	<script
+	src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	
+<div class="tile_container">
+	<a href='#'>
+		<div class='the_tile'>
+			<div class='the_image' style='background-image:url(https://picsum.photos/400/250?image=301);'>
+				<div class="the_overlay"></div>
+			</div>
+			<h3 class="the_title" >Post Title 6</h3>
+		</div>
+	</a>
+</div>
+<div class="tile_container">
+	<a href='#'>
+		<div class='the_tile'>
+			<div class='the_image' style='background-image:url(https://picsum.photos/400/250?image=160);'>
+				<div class="the_overlay"></div>
+			</div>
+			<h3 class="the_title" >Post Title 5</h3>
+		</div>
+	</a>
+</div>
+<div class="tile_container">
+	<a href='#'>
+		<div class='the_tile'>
+			<div class='the_image' style='background-image:url(https://picsum.photos/400/250?image=250);'>
+				<div class="the_overlay"></div>
+			</div>
+			<h3 class="the_title" >Post Title 4</h3>
+		</div>
+	</a>
+</div>
+<div class="tile_container">
+	<a href='#'>
+		<div class='the_tile'>
+			<div class='the_image' style='background-image:url(https://picsum.photos/400/250?image=0);'>
+				<div class="the_overlay"></div>
+			</div>
+			<h3 class="the_title" >Post Title 3</h3>
+		</div>
+	</a>
+</div>
+<div class="tile_container">
+	<a href='#'>
+		<div class='the_tile'>
+			<div class='the_image' style='background-image:url(https://picsum.photos/400/250?image=100);'>
+				<div class="the_overlay"></div>
+			</div>
+			<h3 class="the_title" >Post Title 2</h3>
+		</div>
+	</a>
+</div>
+<div class="tile_container">
+	<a href='#'>
+		<div class='the_tile'>
+			<div class='the_image' style='background-image:url(https://picsum.photos/400/250?random);'>
+				<div class="the_overlay"></div>
+			</div>
+			<h3 class="the_title" >Post Title 1</h3>
+		</div>
+	</a>
+</div>
+
+<script>
+
+
+$( document ).ready(function() {
+	
+
+$(".tile_container").hover(
+	function(){
+
+		$(".the_overlay", this).filter(':not(:animated)').animate({
+			top: '0%'
+		}, {
+			duration: 250,
+			easing: 'easeOutSine',
+			complete: function(){
+				$(this).parent().parent().children(".the_title").animate({
+					bottom: '20px'
+				}, {
+					duration: 10,
+					easing: 'easeInBack'
+				});
+			}
+		});
+
+
+	},
+	function() {
+
+		$(".the_overlay", this).animate({
+			top: '100%'
+		}, {
+			duration: 250,
+			complete: function(){
+				$(this).parent().parent().children(".the_title").animate({
+					bottom: '0px'
+				}, {
+					duration: 10,
+					easing: 'easeInBack'
+				});
+			}
+		});
+
+
+	});
+});
+
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.tile_container{
+	display: inline-block;
+	overflow: hidden;
+}
+
+.the_overlay{
+	height: 100%;
+	width: 100%;
+	background: black;
+	position: absolute;
+	opacity: 0.5;
+	top: 100%;
+}
+
+.the_tile{
+	width: 400px;
+	height: 250px;
+	position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.the_tile .the_image{
+	width: 100%;
+	height: auto;
+	min-height: 250px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+/* LINEAR GRADIENT */
+.the_tile .the_image:after{
+	position: absolute;
+    content:"";
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%,rgba(0,0,0,0.65) );
+}
+
+.the_tile .the_title{
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	margin: 0;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	color: white !important;
+	text-transform: uppercase !important;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 28px;
+	line-height: 28px;
+	transition: .5s ease;
+	font-weight: 600;
+	text-align: right;
+}
+
+</style>
+
+
+</body>
+</html>
