@@ -92,8 +92,8 @@ $(".tile_container").hover(
 				$(this).parent().parent().children(".the_title").velocity({
 					bottom: '20px'
 				}, {
-					duration: 10,
-					easing: 'easeInBack'
+					duration: 150,
+					easing: 'easeOutCirc'
 				});
 			}
 		});
@@ -113,8 +113,8 @@ $(".tile_container").hover(
 				$(this).parent().parent().children(".the_title").velocity({
 					bottom: '0px'
 				}, {
-					duration: 10,
-					easing: 'easeInBack'
+					duration: 150,
+					easing: 'easeOutCirc'
 				});
 			}
 		});
@@ -184,7 +184,6 @@ $(".tile_container").hover(
 	font-family: 'Open Sans', sans-serif;
 	font-size: 28px;
 	line-height: 28px;
-	transition: .5s ease;
 	font-weight: 600;
 	text-align: right;
 }
